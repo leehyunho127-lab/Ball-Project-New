@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float jumpPower; //Á¡ÇÁÈû
     public bool isGround; // ¹Ù´Ú ´ê¾Ò´ÂÁö À¯¹«
 
+    public static int score;
     Rigidbody rigid;
 
     void Awake()

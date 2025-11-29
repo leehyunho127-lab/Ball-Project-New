@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static bool isLive;
-    public static int score;
     public static int health = 3;
 
     void Start()
@@ -24,12 +23,12 @@ public class GameManager : MonoBehaviour
     public static void DataClear()
     {
         isLive = false;
-        score = 0;
+        Player.score = 0;
         health = 3;
     }
     public static void GetItem()
     {
-        score += 100;
+        Player.score += 100;
     }
 
     public static void Damage()
@@ -43,7 +42,8 @@ public class GameManager : MonoBehaviour
 
     public static void Clear()
     {
-        score += 1000;
+        Player.score += 1000;
         SceneManager.LoadScene("End");
     }
+
 }
