@@ -399,6 +399,7 @@
 "Assets/Code/Item.cs"
 "Assets/Code/Player.cs"
 "Assets/Code/Restert.cs"
+"Assets/Code/SavePoint.cs"
 "Assets/Code/Turn.cs"
 "Assets/Code/UIManager.cs"
 -langversion:9.0
