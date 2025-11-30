@@ -7,9 +7,31 @@ public class EndUIManager : MonoBehaviour
 {
     public Text EndscoreText;
     public Text EndtimeText;
+    public Text Title;
+
+    AudioSource myAudio;
+    public AudioClip clear;
+    public AudioClip gameover;
+
+    void Awake()
+    {
+        myAudio = GetComponent<AudioSource>();
+    }
     void Start()
     {
         int currentScore = Player.score;
+        if(currentScore >= 1000)
+        {
+            Title.text = "게임 클리어!";
+            myAudio.clip = clear;
+            myAudio.Play();
+        }
+        else
+        {
+            Title.text = "게임 오버...";
+            myAudio.clip = gameover;
+            myAudio.Play();
+        }
         // 시:분:초로 변환
         TimeSpan timeSpan = TimeSpan.FromSeconds(Score.playTime);
 

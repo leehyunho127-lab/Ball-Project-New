@@ -7,10 +7,12 @@ public class Damage : MonoBehaviour
 {
     public GameObject currentcheckpoint;
     private SavePoint savepoint;
+    AudioSource myAudio;
 
     void Start()
     {
         this.savepoint = FindObjectOfType<SavePoint>();
+        myAudio = GetComponent<AudioSource>();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -22,8 +24,9 @@ public class Damage : MonoBehaviour
                 PlayerRb.velocity = Vector3.zero;
                 PlayerRb.angularVelocity = Vector3.zero;
             }
-                GameManager.Damage();//单固瘤
-            // 家府巢
+            GameManager.Damage();//单固瘤
+            myAudio.Play();// 家府巢
+
             if (savepoint.SaveReach == true)
             {
                 other.transform.position = new Vector3(1, 27, -3);

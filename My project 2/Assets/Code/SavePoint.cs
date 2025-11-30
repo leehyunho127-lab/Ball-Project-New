@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class SavePoint : MonoBehaviour
 {
+    [SerializeField]
+    AudioClip save;
+
     private Damage CheckManager;
     public bool SaveReach;
 
@@ -16,9 +19,13 @@ public class SavePoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameManager.health = 3;
             CheckManager.currentcheckpoint = GameObject.Find("savepoint");
             Destroy(gameObject);//큐브사라짐
-            // 소리남
+            if (save != null)// 소리남
+            {
+                AudioSource.PlayClipAtPoint(save, transform.position);
+            }
             SaveReach = true;
         }
     }

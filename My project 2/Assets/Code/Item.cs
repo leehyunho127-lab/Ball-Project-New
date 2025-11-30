@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            GameManager.GetItem();// 점수 얻음
-            // 소리남
-            Destroy(gameObject);// 아이템 사라짐
-        }
-    }
+    [SerializeField]
+    AudioClip item;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.GetItem();// 점수 얻음
+            if (item != null)
+            {
+                AudioSource.PlayClipAtPoint(item, transform.position);
+            }
+            Destroy(gameObject);// 아이템 사라짐
+        }
     }
 }
