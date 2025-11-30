@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static bool isLive;
     public static int health = 3;
+    public static bool SaveReach;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
         isLive = false;
         Player.score = 0;
         health = 3;
+        SaveReach = false;
     }
     public static void GetItem()
     {
